@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 // import reactLogo from './assets/react.svg'
-import logo from '/vite.svg'
-import './App.css'
+import logo from '../assets/vite.svg';
 
-function App() {
-  const [count, setCount] = useState(0)
+function Home() {
+  const [count, setCount] = useState(0);
 
   return (
     <div className="text-center selection:bg-green-900">
@@ -16,11 +16,11 @@ function App() {
         />
         <style>
           {
-            "\
+            '\
             .animate-speed{\
               animation-duration:20s;\
             }\
-          "
+          '
           }
         </style>
         <p className="bg-gradient-to-r from-emerald-300 to-sky-300 bg-clip-text text-5xl font-black text-transparent selection:bg-transparent">
@@ -29,16 +29,23 @@ function App() {
         <p className="mt-3">
           <button
             type="button"
-            className="my-6 rounded bg-gray-300 px-2 py-2 text-[#282C34] transition-all hover:bg-gray-200"
-            onClick={() => setCount((count) => count + 1)}
+            className="my-6 rounded bg-red-400 px-2 py-2 text-[#282C34] transition-all hover:bg-gray-200"
+            onClick={() => setCount((c) => c + 1)}
           >
-            count is: {count}
+            count is:
+            {' '}
+            {count}
           </button>
         </p>
         <p>
-          Edit <code className="text-[#8d96a7]">App.jsx</code> and save to test
-          HMR updates. MAREK
+          ©
+          {new Date().getFullYear()}
+          {' '}
+          Copyright
         </p>
+        <Link to={{ pathname: 'about' }} target="_parent" rel="noopener noreferer">
+          About
+        </Link>
         <p className="mt-3 flex gap-3 text-center text-[#8d96a7]">
           <a
             className="text-[#61dafb] transition-all hover:text-blue-400"
@@ -48,7 +55,7 @@ function App() {
           >
             Learn React
           </a>
-          {" | "}
+          {' | '}
           <a
             className="text-[#61dafb] transition-all hover:text-blue-400"
             href="https://vitejs.dev/guide/features.html"
@@ -61,29 +68,7 @@ function App() {
         {/* <img src={poweredBy} className="mx-auto my-8" alt="powered-by" /> */}
       </header>
     </div>
-    // <>
-    //   <div>
-    //     <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-    //       <img src={viteLogo} className="logo" alt="Vite logo" />
-    //     </a>
-    //     <a href="https://react.dev" target="_blank" rel="noreferrer">
-    //       <img src={reactLogo} className="logo react" alt="React logo" />
-    //     </a>
-    //   </div>
-    //   <h1>Vite _degit_ React</h1>
-    //   <div className="card">
-    //     <button onClick={() => setCount((count) => count + 1)}>
-    //       count is {count}
-    //     </button>
-    //     <p>
-    //       Edit <code>src/App.jsx</code> and save to test HMR
-    //     </p>
-    //   </div>
-    //   <p className="read-the-docs">
-    //     Click on the Vite and React logos to learn more
-    //   </p>
-    // </>
-  )
+  );
 }
 
-export default App
+export default Home;
